@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Weather App 2.0</title>
+  </head>
+  <body>
+    <div class="weather-app">
+      <header>
+        <form>
+          <input
+            id="search-city"
+            type="search"
+            placeholder="Enter a city..."
+            required
+            class="search-city"
+          />
+          <input type="submit" value="search" class="search-button" />
+        </form>
+      </header>
+
+      <main>
+        <div class="current-weather">
+          <div>
+            <h1 id="current-city">Barcelona</h1>
+            <p class="date">
+              <span id="currentDayTime">Wednesday 15:32</span>,
+              <span id="weatherDescription">moderate rain</span>
+              <br />
+              Humidity: <strong>87%</strong>, Wind: <strong>7.2km/h</strong>
+            </p>
+          </div>
+          <span class="temperature-icon">☀️</span
+          ><span class="temperature-value" id="current-value">22</span
+          ><span class="temperature-unit">°C</span>
+        </div>
+      </main>
+
+      <footer>
+        <p>
+          Open-source project by
+          <a href="https://github.com/adriana-codes" target="_blank"
+            >Adri Díaz</a
+          >
+          and hosted on
+          <a href="#" target="_blank">Netlify</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
