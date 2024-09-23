@@ -33,17 +33,19 @@
         <div class="current-weather">
           <div>
             <h1 id="current-city"></h1>
-            <p class="date">
-              <span id="currentDayTime">Wednesday 15:32</span>,
+            <p>
+              <span id="currentDayTime"></span>,
               <span id="weatherDescription"></span>
               <br />
-              Humidity: <strong><span id="humidityValue">87</span>%</strong>,
-              Wind: <strong><span id="windValue">7.2</span>km/h</strong>
+              Humidity: <strong id="humidity-value"></strong>, Wind:
+              <strong id="wind-value"></strong>
             </p>
           </div>
-          <span class="temperature-icon" id="temperature-icon"></span
-          ><span class="temperature-value" id="current-value"></span
-          ><span class="temperature-unit">°C</span>
+          <span class="temperature-icon"
+            ><canvas id="temperature-icon"> </canvas>
+          </span>
+          <span class="temperature-value" id="current-value"> </span>
+          <span class="temperature-unit">°C</span>
         </div>
       </main>
 

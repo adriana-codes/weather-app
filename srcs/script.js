@@ -1,17 +1,44 @@
 function updateWeather(response) {
   let temperatureElement = document.querySelector("#current-value");
   let city = document.querySelector("#current-city");
-  let condition = document.querySelector("#weatherDescription");
-  /*let conditionIcon = document.querySelector("#temperature-icon");*/
-  let humidity = document.querySelector("#humidityValue");
-  let wind = document.querySelector("#windValue");
+  let conditionDescription = document.querySelector("#weatherDescription");
+  let conditionImg = document.querySelector("#temperature-icon");
+  let humidity = document.querySelector("#humidity-value");
+  let windSpeed = document.querySelector("#wind-value");
+  let time = document.querySelector("#currentDayTime");
+  let date = new Date(response.data.time * 1000);
 
   city.innerHTML = response.data.city;
+  time.innerHTML = formatDate(date);
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
-  condition.innerHTML = response.data.condition.description;
-  /*conditionIcon.innerHTML = response.data.condition.icon;*/
-  humidity.innerHTML = response.data.temperature.humidity;
-  wind.innerHTML = response.data.wind.speed;
+  conditionDescription.innerHTML = response.data.condition.description;
+  conditionImg.innerHTML = response.data.condition.icon_url;
+  humidity.innerHTML = `${response.data.temperature.humidity}%`;
+  windSpeed.innerHTML = `${response.data.wind.speed} km/h`;
+}
+
+function formatDate(date) {
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  let weekday = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = weekday[date.getDay()];
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+
+  return `${day} ${hours}:${minutes}`;
 }
 
 function searchCity(city) {
@@ -27,32 +54,6 @@ function searchSubmit(event) {
 
   searchCity(searchInput.value);
 }
-
-let currentDate = new Date();
-
-let dateChange = document.querySelector("#currentDayTime");
-
-let hour = currentDate.getHours();
-let minutes = currentDate.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
-}
-
-if (hour < 10) {
-  hour = `0${hour}`;
-}
-let weekdays = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let weekday = weekdays[currentDate.getDay()];
-
-dateChange.innerHTML = `${weekday} ${hour}:${minutes}`;
 
 let searchCityElement = document.querySelector("#search-form");
 searchCityElement.addEventListener("submit", searchSubmit);
