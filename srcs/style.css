@@ -24,11 +24,7 @@ p {
 strong {
   color: #522546;
 }
-footer {
-  text-align: center;
-  border-top: 1px solid #f9f7fe;
-  padding: 5px;
-}
+
 .weather-app {
   background: linear-gradient(
     135deg,
@@ -66,23 +62,29 @@ footer {
 .current-weather {
   display: flex;
   justify-content: space-between;
-  margin: 20px 20px;
+}
+.weather-temperature-details {
+  line-height: 24px;
+}
+.weather-app-temperature-container {
+  display: flex;
+  margin: 20px;
 }
 .temperature-icon {
-  position: relative;
-  left: 40px;
-  bottom: -50px;
-  font-size: 55px;
+  width: 77px;
+  height: 77px;
 }
 .temperature-value {
-  position: relative;
-  left: 12px;
-  top: 30px;
-  font-size: 75px;
+  line-height: 24px;
+  font-size: 77px;
   color: #311d3f;
 }
 .temperature-unit {
-  position: relative;
-  top: 60px;
-  right: 35px;
+  font-size: 18px;
+}
+
+footer {
+  text-align: center;
+  border-top: 1px solid #f9f7fe;
+  padding: 5px;
 }

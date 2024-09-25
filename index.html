@@ -31,7 +31,7 @@
 
       <main>
         <div class="current-weather">
-          <div>
+          <div class="weather-temperature-details">
             <h1 id="current-city"></h1>
             <p>
               <span id="currentDayTime"></span>,
@@ -41,11 +41,11 @@
               <strong id="wind-value"></strong>
             </p>
           </div>
-          <span class="temperature-icon"
-            ><canvas id="temperature-icon"> </canvas>
-          </span>
-          <span class="temperature-value" id="current-value"> </span>
-          <span class="temperature-unit">°C</span>
+          <div class="weather-temperature-contianer">
+            <span id="icon"> </span>
+            <span class="temperature-value" id="current-value"></span>
+            <span class="temperature-unit">°C</span>
+          </div>
         </div>
       </main>
 
