@@ -2,11 +2,6 @@ function updateWeather(response) {
   let temperatureElement = document.querySelector("#current-value");
   let city = document.querySelector("#current-city");
   let conditionDescription = document.querySelector("#weatherDescription");
-  let icon = `<img
-                src="${response.data.condition.icon_url}"
-                alt=""
-                class="temperature-icon"
-              />`;
   let iconImg = document.querySelector("#icon");
   let humidity = document.querySelector("#humidity-value");
   let windSpeed = document.querySelector("#wind-value");
@@ -19,7 +14,11 @@ function updateWeather(response) {
   conditionDescription.innerHTML = response.data.condition.description;
   humidity.innerHTML = `${response.data.temperature.humidity}%`;
   windSpeed.innerHTML = `${response.data.wind.speed} km/h`;
-  iconImg.innerHTML = icon;
+  iconImg.innerHTML = `<img
+                src="${response.data.condition.icon_url}"
+                alt=""
+                class="temperature-icon"
+              />`;
 }
 
 function formatDate(date) {
