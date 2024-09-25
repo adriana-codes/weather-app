@@ -68,14 +68,14 @@ strong {
 }
 .weather-app-temperature-container {
   display: flex;
-  margin: 20px;
+  margin: 30px;
 }
 .temperature-icon {
   width: 77px;
   height: 77px;
 }
 .temperature-value {
-  line-height: 24px;
+  line-height: 20px;
   font-size: 77px;
   color: #311d3f;
 }
