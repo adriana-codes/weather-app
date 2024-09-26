@@ -1,6 +1,7 @@
 function updateWeather(response) {
   let temperatureElement = document.querySelector("#current-value");
   let city = document.querySelector("#current-city");
+  let country = document.querySelector("#current-country");
   let conditionDescription = document.querySelector("#weatherDescription");
   let iconImg = document.querySelector("#icon");
   let humidity = document.querySelector("#humidity-value");
@@ -9,6 +10,7 @@ function updateWeather(response) {
   let date = new Date(response.data.time * 1000);
 
   city.innerHTML = response.data.city;
+  country.innerHTML = response.data.country;
   time.innerHTML = formatDate(date);
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
   conditionDescription.innerHTML = response.data.condition.description;

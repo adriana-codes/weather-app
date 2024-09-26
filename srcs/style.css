@@ -19,6 +19,9 @@ body main h1 {
   font-size: 40px;
   color: #311d3f;
 }
+h2 {
+  font-weight: 200;
+}
 p {
   color: #e1e0ec;
 }
