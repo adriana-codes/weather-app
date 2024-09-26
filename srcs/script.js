@@ -19,6 +19,45 @@ function updateWeather(response) {
                 alt=""
                 class="temperature-icon"
               />`;
+
+  let longitude = response.data.coordinates.longitude;
+  let latitude = response.data.coordinates.latitude;
+  let apiForecastUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${longitude}&lat=${latitude}&key=${apiKey}`;
+
+  axios.get(apiForecastUrl).then(updateForecast);
+}
+
+function updateForecast(response) {
+  let forecast = document.querySelector("#weather-forecast");
+  let content = "";
+
+  for (let i = 0; i < 5; i++) {
+    let date = new Date(response.data.daily[i].time * 1000);
+
+    content += `
+      <div class="weather-forecast-weekday">
+        <div class="weather-forecast-date">${forecastDay(date)}</div>
+        <div class="weather-forecast-icon id="forecast-icon">
+          <img
+              src="${response.data.daily[i].condition.icon_url}"
+              alt=""
+              class="temperature-icon"
+            />
+        </div>
+        <div class="weather-forecast-temperatures">
+          <div class="weather-forecast-temperature">
+            <strong>${Math.round(
+              response.data.daily[i].temperature.maximum
+            )}°</strong>
+          </div>
+          <div class="weather-forecast-temperature">${Math.round(
+            response.data.daily[i].temperature.minimum
+          )}°</div>
+        </div>
+      </div>`;
+  }
+
+  forecast.innerHTML = content;
 }
 
 function formatDate(date) {
@@ -45,8 +84,16 @@ function formatDate(date) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function forecastDay(date) {
+  let dayofweek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let weekdays = dayofweek[date.getDay()];
+
+  return `${weekdays}`;
+}
+
+let apiKey = "0be192793f55aa475o5602t2cabd6e24";
+
 function searchCity(city) {
-  let apiKey = "0be192793f55aa475o5602t2cabd6e24";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(updateWeather);
 }
