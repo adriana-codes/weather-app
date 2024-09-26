@@ -2,6 +2,7 @@ body {
   font-family: Poppins;
   background: #bab0d4;
 }
+
 input {
   font-family: Poppins;
 }
@@ -45,7 +46,7 @@ strong {
   border: none;
   color: rgba(39, 33, 66, 0.4);
   font-size: 16px;
-  padding: 20px;
+  padding: 12px;
   width: 80%;
   border-radius: 6px;
 }
@@ -55,11 +56,11 @@ strong {
   background-color: #470622;
   color: #e1e0ec;
   border: none;
-  padding: 20px;
+  padding: 15px 20px;
   line-height: 1;
   border-radius: 5px;
 }
-.search-button .hover {
+.search-button:hover {
   cursor: pointer;
 }
 
@@ -71,11 +72,11 @@ strong {
 .weather-temperature-details {
   line-height: 24px;
 }
-.weather-app-temperature-container {
+.weather-temperature-container {
   display: flex;
   justify-content: space-between;
   position: relative;
-  margin: 30px;
+  margin: 35px;
 }
 .temperature-icon {
   width: 77px;
@@ -99,8 +100,8 @@ strong {
   display: flex;
   justify-content: space-around;
   text-align: center;
-  margin: 40px 0;
-  padding-bottom: 20px;
+  margin: 20px 0;
+  padding-bottom: 10px;
 }
 
 .weather-forecast-date {

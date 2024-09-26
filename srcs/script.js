@@ -30,8 +30,9 @@ function updateWeather(response) {
 function updateForecast(response) {
   let forecast = document.querySelector("#weather-forecast");
   let content = "";
+  let weekdayForecast = 5;
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < weekdayForecast; i++) {
     let date = new Date(response.data.daily[i].time * 1000);
 
     content += `
